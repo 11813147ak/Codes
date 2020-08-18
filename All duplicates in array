@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<int> findDuplicates(vector<int>& nums) {
+        map<int,int> m;
+        map<int,int>::iterator it;
+        for(int i=0;i<nums.size();i++){
+            m[nums[i]]++;
+            
+        }
+        int ans;
+        vector<int> ans1;
+        for(it=m.begin();it!=m.end();it++){
+            if(it->second%2==0){
+                ans=it->first;
+                ans1.push_back(ans);
+            }
+        }
+        return ans1;
+    }
+};
