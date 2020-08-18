@@ -1,0 +1,34 @@
+class Solution {
+public:
+    vector<vector<int>> subsets(vector<int>& nums) 
+    {
+        vector<vector<int>>subset={{}};
+        
+        vector<int>res;
+        
+        int len;
+        for(int n:nums)
+        {
+            len=subset.size();
+            
+            for(int i=0;i<len;i++)
+            {
+                res=subset[i];
+                res.push_back(n);
+                subset.push_back(res);
+                
+        //We are taking a copy all the existing vectors inside subset and then we are
+        //adding "n" to each and every vector and then pushing them in subset
+        //Like 1 added to [] -> [],[1]
+        //then 2 added to [] and [1] -> [],[1],[2],[1,2]
+        //then 3 added to [],[1],[2] and [1,2] -> [],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3].
+
+            }
+        }
+    
+        
+        return subset;
+        
+        
+    }
+};
