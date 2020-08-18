@@ -1,0 +1,28 @@
+class Solution {
+public:
+    int trap(vector<int>& height) {
+          // To store the maximum water 
+    // that can be stored
+    int res = 0;
+        int n=height.size();
+     
+    // For every element of the array
+    for (int i = 1; i < n-1; i++) {
+         
+        // Find the maximum element on its left
+        int left = height[i];
+        for (int j=0; j<i; j++)
+           left = max(left, height[j]);
+         
+        // Find the maximum element on its right   
+        int right = height[i];
+        for (int j=i+1; j<n; j++)
+           right = max(right, height[j]); 
+        
+       // Update the maximum water    
+       res = res + (min(left, right) - height[i]);   
+    }
+ 
+    return res;   
+    }
+};
